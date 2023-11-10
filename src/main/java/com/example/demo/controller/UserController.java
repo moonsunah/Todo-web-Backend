@@ -30,7 +30,7 @@ public class UserController {
             if(userDTO == null || userDTO.getPassword() == null ) {
                 throw new RuntimeException("Invalid Password value.");
             }
-            log.info("sign up enter");
+            log.info("Sign up enter");
             // 요청을 이용해 저장할 유저 만들기
             UserEntity user = UserEntity.builder()
                     .username(userDTO.getUsername())
@@ -57,7 +57,7 @@ public class UserController {
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticate(@RequestBody UserDTO userDTO) {
-        UserEntity user = userService.getByCredentials(
+        UserEntity user = userService.getByCredentials( // 클라이언트에서 넘겨진 정보를 통해 아이디와 비밀번호를 매칭
                 userDTO.getUsername(),
                 userDTO.getPassword());
 

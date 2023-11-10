@@ -13,7 +13,7 @@ import java.util.List;
 public interface TodoRepository extends MongoRepository<TodoEntity, String> {
     List<TodoEntity> findByUserId(String userId);
 
-//    @Query("SELECT t FROM TodoEntity t WHERE t.userId = ?1")
-//    TodoEntity findByUserIdQuery(String userId);
+    @Query("SELECT t FROM TodoEntity t WHERE t.userId = ?1")
+    TodoEntity findByUserIdQuery(String userId);
 
 }

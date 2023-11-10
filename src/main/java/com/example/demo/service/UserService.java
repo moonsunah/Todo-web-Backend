@@ -13,7 +13,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public UserEntity create(final UserEntity userEntity) {
+    public UserEntity create(final UserEntity userEntity) {  //회원가입
         if(userEntity == null || userEntity.getUsername() == null ) {
             throw new RuntimeException("Invalid arguments");
         }
@@ -27,7 +27,7 @@ public class UserService {
     }
 
     public UserEntity getByCredentials(final String username, final String password) {
-
+        //로그인 시 userId와 password 매칭해서 확인
         return userRepository.findByUsernameAndPassword(username,password);
     }
 }

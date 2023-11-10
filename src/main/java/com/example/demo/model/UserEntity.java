@@ -1,17 +1,15 @@
 package com.example.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 //import org.hibernate.annotations.GenericGenerator;
-//
+
 //import jakarta.persistence.Column;
 //import jakarta.persistence.Entity;
 //import jakarta.persistence.GeneratedValue;
 //import jakarta.persistence.Id;
 //import jakarta.persistence.Table;
 //import jakarta.persistence.UniqueConstraint;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -19,15 +17,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 //@Entity
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 //@Table(uniqueConstraints = {@UniqueConstraint(columnNames = "username")})
-@Document(collection = "usersname")
+@Document(collection = "User")
 public class UserEntity {
-    @Id
+
     //@GeneratedValue(generator="system-uuid")
     //@GenericGenerator(name="system-uuid", strategy = "uuid")
+    @Id
     private String id; // 유저에게 고유하게 부여되는 id.
 
     //@Column(nullable = false)
